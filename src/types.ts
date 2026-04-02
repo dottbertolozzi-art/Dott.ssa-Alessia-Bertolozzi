@@ -13,11 +13,12 @@ export interface Question {
 export interface Profile {
   id: number;
   name: string;
-  description: string;
-  message: string;
-  whatIsHappening: string;
-  whyPastAttemptsFailed: string;
-  whatIsNeeded: string;
+  mirrorEffect: string;
+  explanation: string;
+  urgency: string;
+  reframe: string;
+  direction: string;
+  transition: string;
   minScore: number;
   maxScore: number;
   color: string;

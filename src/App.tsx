@@ -65,11 +65,12 @@ export default function App() {
       score: totalScore,
       profile: resultProfile.name,
       profileDetails: {
-        messaggio: resultProfile.message,
-        descrizione: resultProfile.description,
-        cosaStaSuccedendo: resultProfile.whatIsHappening,
-        percheFallito: resultProfile.whyPastAttemptsFailed,
-        cosaServe: resultProfile.whatIsNeeded
+        mirrorEffect: resultProfile.mirrorEffect,
+        explanation: resultProfile.explanation,
+        urgency: resultProfile.urgency,
+        reframe: resultProfile.reframe,
+        direction: resultProfile.direction,
+        transition: resultProfile.transition
       },
       answers: QUESTIONS.map(q => {
         const value = answers[q.id];
@@ -327,33 +328,37 @@ export default function App() {
                   <span className="text-xs font-bold uppercase tracking-widest opacity-70">Il tuo profilo è:</span>
                   <h2 className="text-3xl font-bold leading-tight">{resultProfile.name}</h2>
                 </div>
-                <p className="text-lg font-medium italic">
-                  “{resultProfile.message}”
-                </p>
-                <p className="text-base leading-relaxed opacity-90">
-                  {resultProfile.description}
-                </p>
+                <div className="space-y-4">
+                  <p className="text-lg font-medium italic leading-relaxed">
+                    {resultProfile.mirrorEffect}
+                  </p>
+                </div>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 <section className="space-y-4">
                   <div className="flex items-center gap-3 text-[#4A7C59]">
                     <Activity className="w-6 h-6" />
                     <h3 className="text-xl font-bold">Cosa sta succedendo nel tuo corpo</h3>
                   </div>
-                  <p className="text-[#636E72] leading-relaxed">
-                    {resultProfile.whatIsHappening}
+                  <p className="text-[#636E72] text-lg leading-relaxed">
+                    {resultProfile.explanation}
                   </p>
                 </section>
 
-                <section className="space-y-4">
+                <section className="space-y-4 p-6 bg-white rounded-2xl border border-[#F0EBE3] shadow-sm">
                   <div className="flex items-center gap-3 text-[#4A7C59]">
                     <AlertCircle className="w-6 h-6" />
-                    <h3 className="text-xl font-bold">Perché i tentativi fatti finora potrebbero non aver funzionato</h3>
+                    <h3 className="text-xl font-bold">La direzione attuale</h3>
                   </div>
-                  <p className="text-[#636E72] leading-relaxed">
-                    {resultProfile.whyPastAttemptsFailed}
-                  </p>
+                  <div className="space-y-4">
+                    <p className="text-[#636E72] leading-relaxed italic">
+                      {resultProfile.urgency}
+                    </p>
+                    <p className="text-[#1A1D1E] font-semibold leading-relaxed">
+                      {resultProfile.reframe}
+                    </p>
+                  </div>
                 </section>
 
                 <section className="space-y-4">
@@ -361,14 +366,17 @@ export default function App() {
                     <Zap className="w-6 h-6" />
                     <h3 className="text-xl font-bold">Cosa ti servirebbe ora</h3>
                   </div>
-                  <p className="text-[#636E72] leading-relaxed">
-                    {resultProfile.whatIsNeeded}
+                  <p className="text-[#636E72] text-lg leading-relaxed">
+                    {resultProfile.direction}
                   </p>
                 </section>
               </div>
 
               <div className="pt-8 border-t border-[#F0EBE3] space-y-12 text-center">
                 <div className="space-y-6">
+                  <p className="text-[#4A7C59] font-bold text-lg">
+                    {resultProfile.transition}
+                  </p>
                   <h3 className="text-2xl font-bold text-[#1A1D1E]">Il prossimo passo verso il tuo equilibrio</h3>
                   <button
                     onClick={() => window.open('https://calendly.com/dott-bertolozzi/chiamatapreliminare', '_blank')}

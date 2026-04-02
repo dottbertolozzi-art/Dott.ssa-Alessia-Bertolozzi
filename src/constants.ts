@@ -31,50 +31,41 @@ export const QUESTIONS: Question[] = [
 export const PROFILES: Profile[] = [
   {
     id: 1,
-    name: "Equilibrio fragile ma recuperabile",
-    description: "Il tuo corpo ha piccoli segnali di squilibrio, ma ha ancora una buona capacità di recupero.",
-    message: "Il tuo corpo sta iniziando a mandare segnali. Intervenire ora può fare molta differenza.",
-    whatIsHappening: "Il tuo sistema ormonale è ancora reattivo, ma sta iniziando a faticare per mantenere l'omeostasi. Piccoli stress metabolici o nutrizionali stanno creando delle micro-infiammazioni che, se ignorate, potrebbero consolidarsi in squilibri più profondi.",
-    whyPastAttemptsFailed: "Forse hai provato approcci generici o 'fai da te' che non hanno considerato la tua unicità biochimica. Senza una strategia mirata, è facile perdersi in consigli contrastanti.",
-    whatIsNeeded: "Serve una regolazione fine dei ritmi circadiani e un supporto nutrizionale che stabilizzi la glicemia, permettendo al corpo di ritrovare la sua naturale fluidità ormonale.",
+    name: "Equilibrio Ormonale Silente",
+    mirrorEffect: "Potresti riconoscerti in questo: senti che stai facendo attenzione, ma il tuo corpo non risponde come dovrebbe. Forse avverti una stanchezza sottile che ignori, o un ciclo che sta cambiando ritmo quasi senza farsi notare.",
+    explanation: "Il tuo corpo non è 'rotto', sta solo cercando di compensare piccoli stress. C'è un dialogo meno fluido tra il tuo metabolismo e i tuoi ormoni, spesso alimentato da una comunicazione intestinale che sta diventando meno efficiente.",
+    urgency: "Ignorare questi segnali non è mancanza di forza, ma di ascolto. Continuare a fare le stesse cose senza una direzione chiara significa aspettare che il corpo sia costretto ad alzare la voce per farsi sentire.",
+    reframe: "Non è che hai fatto poco, è che finora ti sei concentrata sui singoli sintomi invece di guardare all'intero ingranaggio che li muove.",
+    direction: "Servirebbe un approccio che riporti armonia tra metabolismo, ormoni e intestino, lavorando su una strategia personalizzata che sostenga la tua biochimica unica.",
+    transition: "Questo risultato ti dà una direzione, ma per capire davvero come prevenire che questi segnali diventino ostacoli, serve andare un po’ più in profondità.",
     minScore: 0,
-    maxScore: 10,
-    color: "bg-green-50 text-green-800 border-green-200"
+    maxScore: 12,
+    color: "bg-green-50 text-green-900 border-green-200"
   },
   {
     id: 2,
-    name: "Sistema sotto stress metabolico",
-    description: "Instabilità energetica e glicemica con chiari segnali di affaticamento.",
-    message: "Il tuo corpo sta lavorando in condizioni non ottimali. Serve rimettere stabilità.",
-    whatIsHappening: "La gestione degli zuccheri e dell'insulina è al centro del tuo quadro attuale. Questo stress metabolico 'ruba' risorse al sistema ormonale, creando stanchezza cronica e rendendo difficile la gestione del peso e dell'energia.",
-    whyPastAttemptsFailed: "Molte diete si focalizzano solo sulle calorie, ignorando l'impatto ormonale del cibo. Se il tuo metabolismo è sotto stress, restrizioni eccessive possono addirittura peggiorare la situazione.",
-    whatIsNeeded: "È prioritario ripristinare la flessibilità metabolica attraverso una nutrizione funzionale che sostenga i surreni e ottimizzi la risposta insulinica.",
-    minScore: 11,
-    maxScore: 20,
-    color: "bg-yellow-50 text-yellow-800 border-yellow-200"
+    name: "Squilibrio Ormonale Reattivo",
+    mirrorEffect: "Ti senti spesso 'gonfia', stanca anche dopo aver dormito, e il tuo ciclo è diventato un appuntamento temuto o imprevedibile. Hai provato integratori e diete, ma senti che i risultati sono solo temporanei e la confusione aumenta.",
+    explanation: "Il tuo sistema è in uno stato di allerta costante. C'è un disallineamento tra come il tuo intestino assorbe i nutrienti e come i tuoi ormoni gestiscono l'energia, creando un ambiente interno che fatica a trovare stabilità.",
+    urgency: "Aggiungere altri tentativi senza una strategia integrata è come cercare di spegnere un incendio con un bicchiere d'acqua. Il rischio è restare ferma nello stesso punto, mentre il corpo continua a compensare invece di risolvere.",
+    reframe: "Non è colpa tua se non hai risolto. Il problema è che ti hanno proposto soluzioni standard per un corpo che invece ha bisogno di un linguaggio specifico.",
+    direction: "Serve ripristinare il dialogo profondo tra metabolismo e asse ormonale, partendo da un lavoro mirato sull'intestino per sbloccare la tua naturale vitalità.",
+    transition: "Il test indica una direzione chiara, ma per sbloccare davvero la situazione e ritrovare il tuo equilibrio serve un'analisi del tuo caso specifico.",
+    minScore: 13,
+    maxScore: 28,
+    color: "bg-orange-50 text-orange-900 border-orange-200"
   },
   {
     id: 3,
-    name: "Equilibrio ormonale disallineato",
-    description: "Segnali ormonali evidenti con possibile impatto su ovulazione e fertilità.",
-    message: "Qui non si tratta di piccoli aggiustamenti, ma di un lavoro mirato sull’equilibrio del sistema.",
-    whatIsHappening: "L'asse ormonale sta comunicando un disallineamento significativo. Ciclo irregolare, spotting o sintomi marcati indicano che la comunicazione tra cervello e ovaie è disturbata da fattori pro-infiammatori o carenze micronutrizionali specifiche.",
-    whyPastAttemptsFailed: "Spesso ci si concentra solo sul sintomo (es. l'irregolarità del ciclo) senza guardare alla causa radice intestinale o metabolica che lo alimenta.",
-    whatIsNeeded: "Serve un protocollo nutrizionale anti-infiammatorio e di supporto epatico per favorire il corretto metabolismo degli estrogeni e sostenere la fase progestinica.",
-    minScore: 21,
-    maxScore: 30,
-    color: "bg-orange-50 text-orange-800 border-orange-200"
-  },
-  {
-    id: 4,
-    name: "Sistema in sovraccarico",
-    description: "Più sistemi coinvolti (metabolico, intestinale, ormonale) con impatto importante sulla fertilità.",
-    message: "Il tuo corpo sta cercando di compensare uno squilibrio più profondo. Serve una strategia guidata.",
-    whatIsHappening: "Il tuo organismo è in una fase di 'allarme' costante. L'infiammazione sistemica coinvolge intestino, metabolismo e ormoni, creando un ambiente poco favorevole alla fertilità e al benessere generale. Il corpo sta dando priorità alla sopravvivenza rispetto alla riproduzione.",
-    whyPastAttemptsFailed: "Approcci parziali non sono sufficienti quando il sovraccarico è multi-organo. Serve una visione d'insieme che ricolleghi tutti i puntini del tuo vissuto clinico.",
-    whatIsNeeded: "È necessaria una strategia integrata di nutrizione funzionale che parta dal ripristino della barriera intestinale e prosegua con la modulazione profonda dell'infiammazione e dello stress ossidativo.",
-    minScore: 31,
+    name: "Stress Ormonale e Metabolico Radicato",
+    mirrorEffect: "Ti senti esausta, come se il tuo corpo remasse costantemente contro di te. Ogni tentativo di rimetterti in sesto sembra fallire e la frustrazione sta prendendo il sopravvento, lasciandoti con la sensazione di non avere più il controllo.",
+    explanation: "Il tuo organismo è entrato in modalità 'sopravvivenza'. Il metabolismo ha rallentato per proteggerti e gli ormoni sono in costante emergenza, influenzando non solo il ciclo e la fertilità, ma anche il tuo umore e la tua energia vitale.",
+    urgency: "Continuare a forzare il sistema con metodi aggressivi o frammentati non farà che aumentare lo stress interno. Non è questione di quanto ti impegni, ma di cambiare completamente la rotta della tua strategia.",
+    reframe: "Non hai sbagliato tu. È che nessuno ha mai guardato al tuo equilibrio ormonale, metabolico e intestinale come a un unico grande sistema interconnesso.",
+    direction: "Serve un lavoro profondo di riequilibrio che rispetti i tempi del tuo corpo, nutrendo la tua fertilità e il tuo metabolismo attraverso un approccio funzionale e altamente personalizzato.",
+    transition: "Questo profilo richiede attenzione e cura, ma la strada per tornare a stare bene esiste. Per capire da dove iniziare nel tuo caso, serve un confronto diretto.",
+    minScore: 29,
     maxScore: 40,
-    color: "bg-red-50 text-red-800 border-red-200"
+    color: "bg-red-50 text-red-900 border-red-200"
   }
 ];
