@@ -367,20 +367,37 @@ export default function App() {
                 </section>
               </div>
 
-              <div className="pt-8 border-t border-[#F0EBE3] space-y-6 text-center">
-                <div className="space-y-2">
+              <div className="pt-8 border-t border-[#F0EBE3] space-y-10 text-center">
+                <div className="space-y-6">
                   <h3 className="text-2xl font-bold text-[#1A1D1E]">Il prossimo passo verso il tuo equilibrio</h3>
-                  <p className="text-[#636E72]">
-                    Prenota una chiamata preliminare gratuita di 15 minuti. Analizzeremo insieme il tuo profilo per capire come impostare un percorso di nutrizione funzionale su misura per te.
-                  </p>
+                  <button
+                    onClick={() => window.open('https://calendly.com/dott-bertolozzi/chiamatapreliminare', '_blank')}
+                    className="w-full md:w-auto px-10 py-5 bg-[#4A7C59] text-white rounded-full font-bold text-xl shadow-lg hover:bg-[#3D6649] transition-all flex items-center justify-center gap-2 mx-auto"
+                  >
+                    Valutazione preliminare gratuita (15 min)
+                    <ArrowRight className="w-6 h-6" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => window.open('https://calendly.com/dott-bertolozzi/chiamatapreliminare', '_blank')}
-                  className="w-full md:w-auto px-10 py-4 bg-[#4A7C59] text-white rounded-full font-semibold text-lg shadow-lg hover:bg-[#3D6649] transition-all flex items-center justify-center gap-2 mx-auto"
-                >
-                  Prenota la chiamata gratuita
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+
+                <div className="space-y-4 pt-4">
+                  <p className="text-[#636E72] text-sm font-medium max-w-md mx-auto leading-relaxed">
+                    Oppure se ti senti pronta e non c'è più bisogno di aspettare, puoi prenotare direttamente la prima visita:
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                    <button
+                      onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-capannori', '_blank')}
+                      className="w-full sm:w-auto px-6 py-3 bg-white border-2 border-[#4A7C59] text-[#4A7C59] rounded-full font-semibold text-sm hover:bg-[#E2F1E7] transition-all"
+                    >
+                      Prima visita Camigliano (LU)
+                    </button>
+                    <button
+                      onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-firenze', '_blank')}
+                      className="w-full sm:w-auto px-6 py-3 bg-white border-2 border-[#4A7C59] text-[#4A7C59] rounded-full font-semibold text-sm hover:bg-[#E2F1E7] transition-all"
+                    >
+                      Prima visita Firenze
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <button
