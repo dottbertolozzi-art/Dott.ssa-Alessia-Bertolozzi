@@ -22,8 +22,17 @@ export default function App() {
   }, [answers]);
 
   const resultProfile = useMemo(() => {
-    return PROFILES.find(p => totalScore >= p.minScore && totalScore <= p.maxScore) || PROFILES[PROFILES.length - 1];
-  }, [totalScore]);
+    const scoreProfile = PROFILES.find(p => totalScore >= p.minScore && totalScore <= p.maxScore) || PROFILES[PROFILES.length - 1];
+    
+    // Regola Clinica: PMA, aborti o infertilità (>6 mesi) portano il profilo minimo a "Squilibrio ormonale reattivo" (ID 4)
+    const hasFertilityIssues = answers[16] === 2 || answers[17] === 2 || answers[18] === 2;
+    
+    if (hasFertilityIssues && scoreProfile.id < 4) {
+      return PROFILES.find(p => p.id === 4) || scoreProfile;
+    }
+    
+    return scoreProfile;
+  }, [totalScore, answers]);
 
   const handleStart = () => setScreen('QUIZ');
 
