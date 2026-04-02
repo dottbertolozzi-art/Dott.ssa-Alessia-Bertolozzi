@@ -13,6 +13,7 @@ export interface Question {
 export interface Profile {
   id: number;
   name: string;
+  mainMessage: string;
   mirrorEffect: string;
   explanation: string;
   urgency: string;

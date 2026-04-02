@@ -65,9 +65,9 @@ export default function App() {
       score: totalScore,
       profile: resultProfile.name,
       profileDetails: {
-        messaggio: resultProfile.mirrorEffect,
+        messaggio: resultProfile.mainMessage + "\n\n" + resultProfile.mirrorEffect,
         descrizione: resultProfile.explanation,
-        cosaStaSuccedendo: resultProfile.urgency + " " + resultProfile.reframe,
+        cosaStaSuccedendo: resultProfile.urgency + "\n\n" + resultProfile.reframe,
         percheFallito: "N/A (Nuova struttura)",
         cosaServe: resultProfile.direction
       },
@@ -326,9 +326,12 @@ export default function App() {
                 <div className="space-y-2">
                   <span className="text-xs font-bold uppercase tracking-widest opacity-70">Il tuo profilo è:</span>
                   <h2 className="text-3xl font-bold leading-tight">{resultProfile.name}</h2>
+                  <p className="text-xl font-semibold mt-4 leading-tight">
+                    {resultProfile.mainMessage}
+                  </p>
                 </div>
-                <div className="space-y-4">
-                  <p className="text-lg font-medium italic leading-relaxed">
+                <div className="space-y-4 pt-6 border-t border-black/5">
+                  <p className="text-lg font-medium italic leading-relaxed opacity-90">
                     {resultProfile.mirrorEffect}
                   </p>
                 </div>
