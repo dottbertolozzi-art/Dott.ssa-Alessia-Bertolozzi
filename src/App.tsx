@@ -367,7 +367,7 @@ export default function App() {
                 </section>
               </div>
 
-              <div className="pt-8 border-t border-[#F0EBE3] space-y-10 text-center">
+              <div className="pt-8 border-t border-[#F0EBE3] space-y-12 text-center">
                 <div className="space-y-6">
                   <h3 className="text-2xl font-bold text-[#1A1D1E]">Il prossimo passo verso il tuo equilibrio</h3>
                   <button
@@ -379,22 +379,24 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="space-y-4 pt-4">
-                  <p className="text-[#636E72] text-sm font-medium max-w-md mx-auto leading-relaxed">
-                    Oppure se ti senti pronta e non c'è più bisogno di aspettare, puoi prenotare direttamente la prima visita:
+                <div className="space-y-6 pt-8 border-t border-[#F0EBE3]">
+                  <p className="text-[#1A1D1E] text-xl font-bold max-w-md mx-auto leading-tight">
+                    Oppure, se ti senti pronta e non vuoi più aspettare, prenota direttamente la prima visita:
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <div className="flex flex-col gap-4 justify-center items-center">
                     <button
                       onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-capannori', '_blank')}
-                      className="w-full sm:w-auto px-6 py-3 bg-white border-2 border-[#4A7C59] text-[#4A7C59] rounded-full font-semibold text-sm hover:bg-[#E2F1E7] transition-all"
+                      className="w-full md:w-auto px-10 py-5 bg-[#1A1D1E] text-white rounded-full font-bold text-lg shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2"
                     >
                       Prima visita Camigliano (LU)
+                      <ArrowRight className="w-5 h-5" />
                     </button>
                     <button
                       onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-firenze', '_blank')}
-                      className="w-full sm:w-auto px-6 py-3 bg-white border-2 border-[#4A7C59] text-[#4A7C59] rounded-full font-semibold text-sm hover:bg-[#E2F1E7] transition-all"
+                      className="w-full md:w-auto px-10 py-5 bg-[#1A1D1E] text-white rounded-full font-bold text-lg shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2"
                     >
                       Prima visita Firenze
+                      <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>
                 </div>
