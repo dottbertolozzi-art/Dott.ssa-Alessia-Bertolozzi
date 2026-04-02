@@ -2,39 +2,39 @@ import { Question, Profile } from './types';
 
 export const QUESTIONS: Question[] = [
   // METABOLISMO (Energia, Glicemia, Fame)
-  { id: 1, area: "METABOLISMO", text: "Ti capita di avere attacchi di fame improvvisa o un bisogno irrefrenabile di dolci?" },
-  { id: 2, area: "METABOLISMO", text: "Ti senti stanca, appesantita o con la mente annebbiata subito dopo aver mangiato?" },
-  { id: 3, area: "METABOLISMO", text: "Senti che il tuo peso è bloccato, anche se pensi di mangiare in modo corretto?" },
-  { id: 4, area: "METABOLISMO", text: "Avverti un calo di energie o di lucidità mentale nel tardo pomeriggio?" },
-  { id: 5, area: "METABOLISMO", text: "Diventi irritabile, ansiosa o senti tremori se un pasto viene ritardato?" },
+  { id: 1, area: "METABOLISMO", text: "Ti capita di avere attacchi di fame improvvisa o una voglia matta di dolci?" },
+  { id: 2, area: "METABOLISMO", text: "Ti senti stanca o con la 'nebbia in testa' subito dopo aver mangiato?" },
+  { id: 3, area: "METABOLISMO", text: "Senti che il tuo peso non scende, anche se mangi poco o stai attenta?" },
+  { id: 4, area: "METABOLISMO", text: "Ti senti scarica o fai fatica a concentrarti nel tardo pomeriggio?" },
+  { id: 5, area: "METABOLISMO", text: "Diventi nervosa o ti senti debole se salti un pasto o mangi in ritardo?" },
 
   // ORMONI (Ciclo, Ovulazione, Sintomi)
-  { id: 6, area: "ORMONI", text: "Vivi una sindrome premestruale intensa (sbalzi d'umore, tensione al seno, irritabilità)?" },
-  { id: 7, area: "ORMONI", text: "Noti delle perdite scure (spotting) nei giorni che precedono il ciclo vero e proprio?" },
-  { id: 8, area: "ORMONI", text: "Il tuo ciclo è così doloroso, abbondante o irregolare da limitare le tue attività?" },
-  { id: 9, area: "ORMONI", text: "Noti la comparsa di imperfezioni o brufoli sulla zona della mascella o del mento?" },
-  { id: 10, area: "ORMONI", text: "Ti senti spesso 'gonfia' o noti una forte ritenzione idrica che cambia drasticamente col ciclo?" },
+  { id: 6, area: "ORMONI", text: "I giorni prima del ciclo sono un incubo (umore a terra, seno gonfio, nervosismo)?" },
+  { id: 7, area: "ORMONI", text: "Noti delle piccole macchie di sangue scuro qualche giorno prima che arrivi il ciclo?" },
+  { id: 8, area: "ORMONI", text: "Il tuo ciclo è così doloroso o abbondante da costringerti a stare a letto o cambiare piani?" },
+  { id: 9, area: "ORMONI", text: "Ti spuntano brufoli o imperfezioni proprio sulla zona del mento o della mascella?" },
+  { id: 10, area: "ORMONI", text: "Ti senti 'gonfia come un palloncino' o senti le gambe pesanti in certi momenti del mese?" },
 
   // INTESTINO (Digestione, Gonfiore, Alvo)
-  { id: 11, area: "INTESTINO", text: "Ti capita di svegliarti con la pancia piatta e ritrovarti molto gonfia a fine giornata?" },
-  { id: 12, area: "INTESTINO", text: "Il tuo transito intestinale è irregolare (stipsi, feci poco formate o giorni alterni)?" },
-  { id: 13, area: "INTESTINO", text: "Senti che la digestione è lenta, come se il cibo rimanesse sullo stomaco per ore?" },
-  { id: 14, area: "INTESTINO", text: "Avverti fastidi, aria, brontolii o tensione addominale dopo i pasti?" },
-  { id: 15, area: "INTESTINO", text: "Noti che la tua lucidità mentale o il tuo umore cambiano in base a come digerisci?" },
+  { id: 11, area: "INTESTINO", text: "Ti svegli con la pancia piatta ma la sera non riesci quasi a chiudere i pantaloni?" },
+  { id: 12, area: "INTESTINO", text: "Fai fatica ad andare in bagno regolarmente o senti che il tuo intestino è 'pigro'?" },
+  { id: 13, area: "INTESTINO", text: "Senti che la digestione è lunghissima, come se avessi un sasso sullo stomaco?" },
+  { id: 14, area: "INTESTINO", text: "Senti aria nella pancia, brontolii o tensione subito dopo aver mangiato?" },
+  { id: 15, area: "INTESTINO", text: "Senti che il tuo umore o la tua voglia di fare dipendono da come hai digerito?" },
 
   // FERTILITÀ (Tentativi, Consapevolezza, Difficoltà)
-  { id: 16, area: "FERTILITÀ", text: "Stai cercando una gravidanza da più di 6 mesi senza successo o con difficoltà?" },
-  { id: 17, area: "FERTILITÀ", text: "Fai fatica a individuare i tuoi giorni fertili o i segnali dell'ovulazione (muco, temperatura)?" },
-  { id: 18, area: "FERTILITÀ", text: "Ti senti 'scollegata' dal tuo corpo o senti di non capirne i ritmi riproduttivi?" },
-  { id: 19, area: "FERTILITÀ", text: "Vivi il percorso della fertilità o la gestione del ciclo con un senso di ansia e pressione?" },
-  { id: 20, area: "FERTILITÀ", text: "Hai ricevuto diagnosi come PCOS, endometriosi o riserva ovarica ridotta?", options: [{ label: "No", value: 0 }, { label: "Sì", value: 2 }] },
+  { id: 16, area: "FERTILITÀ", text: "Stai cercando un bambino da più di 6 mesi ma senti che non arriva?" },
+  { id: 17, area: "FERTILITÀ", text: "Fai fatica a capire quando stai ovulando o quali sono i tuoi giorni fertili?" },
+  { id: 18, area: "FERTILITÀ", text: "Senti di non conoscere bene il tuo corpo o di non capire i segnali che ti manda?" },
+  { id: 19, area: "FERTILITÀ", text: "Vivi la ricerca di una gravidanza o la gestione del ciclo con ansia e preoccupazione?" },
+  { id: 20, area: "FERTILITÀ", text: "Ti hanno mai detto che hai l'ovaio policistico (PCOS) o l'endometriosi?", options: [{ label: "No", value: 0 }, { label: "Sì", value: 2 }] },
 
   // STILE DI VITA (Sonno, Stress, Ritmi)
-  { id: 21, area: "STILE DI VITA", text: "Ti svegli stanca al mattino, anche se hai dormito un numero di ore sufficiente?" },
-  { id: 22, area: "STILE DI VITA", text: "Senti di vivere costantemente 'di corsa' o sotto una pressione emotiva eccessiva?" },
-  { id: 23, area: "STILE DI VITA", text: "Ti capita spesso di saltare la colazione o mangiare velocemente davanti a uno schermo?" },
-  { id: 24, area: "STILE DI VITA", text: "Fai fatica ad addormentarti perché la tua mente continua a rielaborare la giornata?" },
-  { id: 25, area: "STILE DI VITA", text: "Senti di aver bisogno di caffè, tè o stimolanti per riuscire ad affrontare la giornata?" },
+  { id: 21, area: "STILE DI VITA", text: "Ti svegli stanca morta al mattino, anche se hai dormito tutta la notte?" },
+  { id: 22, area: "STILE DI VITA", text: "Ti senti sempre 'con l'acqua alla gola' o sotto pressione per le troppe cose da fare?" },
+  { id: 23, area: "STILE DI VITA", text: "Mangi spesso di corsa, saltando la colazione o guardando il telefono/computer?" },
+  { id: 24, area: "STILE DI VITA", text: "Fai fatica a prendere sonno perché continui a pensare a quello che devi fare domani?" },
+  { id: 25, area: "STILE DI VITA", text: "Senti che senza caffè o tè non riusciresti proprio a iniziare la giornata?" },
 ];
 
 export const PROFILES: Profile[] = [
