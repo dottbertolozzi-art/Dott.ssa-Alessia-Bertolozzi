@@ -65,12 +65,11 @@ export default function App() {
       score: totalScore,
       profile: resultProfile.name,
       profileDetails: {
-        mirrorEffect: resultProfile.mirrorEffect,
-        explanation: resultProfile.explanation,
-        urgency: resultProfile.urgency,
-        reframe: resultProfile.reframe,
-        direction: resultProfile.direction,
-        transition: resultProfile.transition
+        messaggio: resultProfile.mirrorEffect,
+        descrizione: resultProfile.explanation,
+        cosaStaSuccedendo: resultProfile.urgency + " " + resultProfile.reframe,
+        percheFallito: "N/A (Nuova struttura)",
+        cosaServe: resultProfile.direction
       },
       answers: QUESTIONS.map(q => {
         const value = answers[q.id];
