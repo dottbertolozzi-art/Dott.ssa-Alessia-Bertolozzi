@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, ChevronLeft, CheckCircle2, AlertCircle, Info, ArrowRight, Mail, Heart, Activity, Zap, Droplets, Leaf } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle2, AlertCircle, Info, ArrowRight, Mail, Heart, Activity, Zap, Droplets } from 'lucide-react';
 import { QUESTIONS, PROFILES } from './constants';
 import { Question, Profile } from './types';
 
@@ -125,6 +125,33 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2D3436] font-sans selection:bg-[#E2F1E7]">
+      {/* Header with Logo and Name */}
+      <header className="max-w-2xl mx-auto px-6 pt-8 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-[#E2F1E7] rounded-full overflow-hidden flex items-center justify-center border border-[#4A7C59]/20">
+            {/* Placeholder for the logo image */}
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                // Fallback if logo.png is not found
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement!.innerHTML = '<div class="text-[#4A7C59] font-bold text-xl">AB</div>';
+              }}
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bold text-[#1A1D1E] tracking-tight text-lg leading-tight">
+              Dott.ssa Alessia Bertolozzi
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-wider text-[#4A7C59]">
+              Biologa Nutrizionista e della Riproduzione
+            </span>
+          </div>
+        </div>
+      </header>
+
       <div className="max-w-2xl mx-auto px-6 py-12 md:py-20">
         <AnimatePresence mode="wait">
           {screen === 'START' && (
@@ -135,8 +162,16 @@ export default function App() {
               exit={{ opacity: 0, y: -20 }}
               className="text-center space-y-8"
             >
-              <div className="inline-flex items-center justify-center p-3 bg-[#E2F1E7] rounded-full mb-4">
-                <Leaf className="w-8 h-8 text-[#4A7C59]" />
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-[#E2F1E7] rounded-full mb-4 overflow-hidden border-2 border-[#4A7C59]/10">
+                <img 
+                  src="/logo.png" 
+                  alt="Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="text-[#4A7C59] font-bold text-3xl">AB</div>';
+                  }}
+                />
               </div>
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1A1D1E]">
@@ -439,7 +474,7 @@ export default function App() {
       <footer className="max-w-2xl mx-auto px-6 pb-12 text-center space-y-4">
         <div className="flex items-center justify-center gap-2 text-[#4A7C59]/60">
           <Heart className="w-4 h-4 fill-current" />
-          <span className="text-xs font-medium uppercase tracking-widest">Nutrizione Funzionale & Fisiologia</span>
+          <span className="text-xs font-bold uppercase tracking-widest">Dott.ssa Alessia Bertolozzi • Biologa Nutrizionista e della Riproduzione</span>
         </div>
         <p className="text-[10px] text-[#636E72]/50 uppercase tracking-tighter">
           © {new Date().getFullYear()} • Questo test non sostituisce il parere medico.
