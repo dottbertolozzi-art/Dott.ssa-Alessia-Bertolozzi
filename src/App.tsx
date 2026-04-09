@@ -74,24 +74,24 @@ export default function App() {
       score: totalScore,
       profile: resultProfile.name,
       profileDetails: {
-        messaggio: resultProfile.mainMessage + "\n\n" + resultProfile.mirrorEffect,
-        descrizione: resultProfile.explanation,
-        cosaStaSuccedendo: resultProfile.urgency + "\n\n" + resultProfile.reframe,
-        percheFallito: "N/A (Nuova struttura)",
-        cosaServe: resultProfile.direction
+        messaggio: resultProfile.mainMessage,
+        significato: resultProfile.meaningNow,
+        conseguenze: resultProfile.inactionConsequences,
+        miglioramento: resultProfile.improvement,
+        prossimoPasso: resultProfile.transition
       },
       answers: QUESTIONS.map(q => {
         const value = answers[q.id];
-        const option = q.options?.find(o => o.value === value) || 
+        const option = q.options?.find(o => o.score === value) || 
                        [
-                         { label: 'Mai', value: 0 },
-                         { label: 'A volte', value: 1 },
-                         { label: 'Spesso', value: 2 }
-                       ].find(o => o.value === value);
+                         { text: 'Mai', score: 0 },
+                         { text: 'A volte', score: 1 },
+                         { text: 'Spesso', score: 2 }
+                       ].find(o => o.score === value);
         
         return {
           domanda: q.text,
-          risposta: option?.label || 'N/A'
+          risposta: option?.text || 'N/A'
         };
       })
     };
@@ -214,7 +214,7 @@ export default function App() {
               <div className="space-y-4">
                 <div className="flex justify-between items-end">
                   <span className="text-xs font-bold uppercase tracking-widest text-[#4A7C59]">
-                    Area: {QUESTIONS[currentQuestionIndex].area}
+                    Domanda
                   </span>
                   <span className="text-sm font-medium text-[#636E72]">
                     {currentQuestionIndex + 1} di {QUESTIONS.length}
@@ -236,18 +236,14 @@ export default function App() {
                 </h2>
 
                 <div className="grid gap-4">
-                  {(QUESTIONS[currentQuestionIndex].options || [
-                    { label: 'Mai', value: 0 },
-                    { label: 'A volte', value: 1 },
-                    { label: 'Spesso', value: 2 }
-                  ]).map((option) => (
+                  {QUESTIONS[currentQuestionIndex].options.map((option) => (
                     <button
-                      key={option.label}
-                      onClick={() => handleAnswer(option.value)}
+                      key={option.text}
+                      onClick={() => handleAnswer(option.score)}
                       className="group relative w-full p-5 text-left bg-white border-2 border-[#F0EBE3] rounded-2xl hover:border-[#4A7C59] hover:bg-[#FDFBF7] transition-all flex items-center justify-between"
                     >
                       <span className="text-lg font-medium text-[#2D3436] group-hover:text-[#4A7C59]">
-                        {option.label}
+                        {option.text}
                       </span>
                       <div className="w-6 h-6 rounded-full border-2 border-[#F0EBE3] group-hover:border-[#4A7C59] flex items-center justify-center transition-colors">
                         <div className="w-3 h-3 rounded-full bg-[#4A7C59] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -279,17 +275,21 @@ export default function App() {
                 <Mail className="w-8 h-8 text-[#4A7C59]" />
               </div>
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold text-[#1A1D1E]">Ci siamo quasi!</h2>
+                <h2 className="text-3xl font-bold text-[#1A1D1E]">Ricevi la tua analisi e la guida ai primi passi</h2>
                 <p className="text-lg text-[#636E72] max-w-md mx-auto">
-                  Inserisci la tua email per ricevere il risultato dettagliato e una guida ai primi passi per il tuo equilibrio.
+                  Non ti invierò spam. Riceverai il tuo profilo dettagliato e una guida pratica per iniziare a capire cosa serve davvero al tuo corpo oggi.
                 </p>
+                <div className="flex items-center justify-center gap-2 text-xs text-[#636E72]/70 italic">
+                  <CheckCircle2 className="w-3 h-3" />
+                  I tuoi dati sono trattati con il massimo rispetto professionale.
+                </div>
               </div>
 
               <form onSubmit={handleEmailSubmit} className="space-y-4 max-w-md mx-auto">
                 <input
                   type="email"
                   required
-                  placeholder="La tua email migliore"
+                  placeholder="Inserisci la tua email migliore"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-6 py-4 bg-white border-2 border-[#F0EBE3] rounded-2xl focus:border-[#4A7C59] focus:outline-none transition-all text-lg"
@@ -298,14 +298,14 @@ export default function App() {
                   type="submit"
                   className="w-full py-4 bg-[#4A7C59] text-white rounded-full font-semibold text-lg shadow-lg hover:bg-[#3D6649] transition-all"
                 >
-                  Scopri il mio profilo
+                  Invia l'analisi e scopri il profilo
                 </button>
                 <button
                   type="button"
                   onClick={skipEmail}
                   className="text-sm text-[#636E72] hover:underline"
                 >
-                  Voglio solo vedere il risultato
+                  Voglio solo vedere il risultato (senza guida)
                 </button>
               </form>
             </motion.div>
@@ -374,61 +374,56 @@ export default function App() {
                     {resultProfile.mainMessage}
                   </p>
                 </div>
-                <div className="space-y-4 pt-6 border-t border-black/5">
-                  <p className="text-lg font-medium italic leading-relaxed opacity-90">
-                    {resultProfile.mirrorEffect}
-                  </p>
-                </div>
               </div>
 
               <div className="space-y-10">
                 <section className="space-y-4">
                   <div className="flex items-center gap-3 text-[#4A7C59]">
-                    <Activity className="w-6 h-6" />
-                    <h3 className="text-xl font-bold">Cosa sta succedendo nel tuo corpo</h3>
+                    <Zap className="w-6 h-6" />
+                    <h3 className="text-xl font-bold">Cosa significa per te adesso</h3>
                   </div>
-                  <p className="text-[#636E72] text-lg leading-relaxed">
-                    {resultProfile.explanation}
+                  <p className="text-[#636E72] text-lg leading-relaxed whitespace-pre-line">
+                    {resultProfile.meaningNow}
                   </p>
                 </section>
 
-                <section className="space-y-4 p-6 bg-white rounded-2xl border border-[#F0EBE3] shadow-sm">
-                  <div className="flex items-center gap-3 text-[#4A7C59]">
+                <section className="space-y-4 p-6 bg-red-50/30 rounded-2xl border border-red-100">
+                  <div className="flex items-center gap-3 text-red-700">
                     <AlertCircle className="w-6 h-6" />
-                    <h3 className="text-xl font-bold">La direzione attuale</h3>
+                    <h3 className="text-xl font-bold">Cosa succede se non intervieni</h3>
                   </div>
-                  <div className="space-y-4">
-                    <p className="text-[#636E72] leading-relaxed italic">
-                      {resultProfile.urgency}
-                    </p>
-                    <p className="text-[#1A1D1E] font-semibold leading-relaxed">
-                      {resultProfile.reframe}
-                    </p>
-                  </div>
+                  <p className="text-red-900/80 text-lg leading-relaxed italic whitespace-pre-line">
+                    {resultProfile.inactionConsequences}
+                  </p>
                 </section>
 
-                <section className="space-y-4">
+                <section className="space-y-4 p-6 bg-[#E2F1E7]/30 rounded-2xl border border-[#4A7C59]/20">
                   <div className="flex items-center gap-3 text-[#4A7C59]">
-                    <Zap className="w-6 h-6" />
-                    <h3 className="text-xl font-bold">Cosa ti servirebbe ora</h3>
+                    <CheckCircle2 className="w-6 h-6" />
+                    <h3 className="text-xl font-bold">Cosa cambierebbe se intervenissi ora</h3>
                   </div>
-                  <p className="text-[#636E72] text-lg leading-relaxed">
-                    {resultProfile.direction}
+                  <p className="text-[#1A1D1E] text-lg font-medium leading-relaxed whitespace-pre-line">
+                    {resultProfile.improvement}
                   </p>
                 </section>
               </div>
 
               <div className="pt-8 border-t border-[#F0EBE3] space-y-12 text-center">
                 <div className="space-y-6">
-                  <p className="text-[#4A7C59] font-bold text-lg">
+                  <p className="text-[#4A7C59] font-bold text-lg italic">
                     {resultProfile.transition}
                   </p>
-                  <h3 className="text-2xl font-bold text-[#1A1D1E]">Il prossimo passo verso il tuo equilibrio</h3>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-[#1A1D1E]">Il prossimo passo verso il tuo equilibrio</h3>
+                    <p className="text-[#636E72] text-lg max-w-xl mx-auto">
+                      Per capire meglio come posso aiutarti nel tuo caso specifico e quali sono i passi giusti per te, prenota una chiamata preliminare gratuita.
+                    </p>
+                  </div>
                   <button
                     onClick={() => window.open('https://calendly.com/dott-bertolozzi/chiamatapreliminare', '_blank')}
                     className="w-full md:w-auto px-10 py-5 bg-[#4A7C59] text-white rounded-full font-bold text-xl shadow-lg hover:bg-[#3D6649] transition-all flex items-center justify-center gap-2 mx-auto"
                   >
-                    Valutazione preliminare gratuita (15 min)
+                    Chiamata preliminare gratuita (15 min)
                     <ArrowRight className="w-6 h-6" />
                   </button>
                 </div>
@@ -437,20 +432,18 @@ export default function App() {
                   <p className="text-[#1A1D1E] text-xl font-bold max-w-md mx-auto leading-tight">
                     Oppure, se ti senti pronta e non vuoi più aspettare, prenota direttamente la prima visita:
                   </p>
-                  <div className="flex flex-col gap-4 justify-center items-center">
-                    <button
-                      onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-capannori', '_blank')}
-                      className="w-full md:w-auto px-10 py-5 bg-[#1A1D1E] text-white rounded-full font-bold text-lg shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2"
-                    >
-                      Prima visita Camigliano (LU)
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <button
                       onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-firenze', '_blank')}
-                      className="w-full md:w-auto px-10 py-5 bg-[#1A1D1E] text-white rounded-full font-bold text-lg shadow-xl hover:bg-black transition-all flex items-center justify-center gap-2"
+                      className="w-full md:w-auto px-8 py-4 bg-white text-[#4A7C59] border-2 border-[#4A7C59] rounded-full font-bold text-lg hover:bg-[#E2F1E7] transition-all flex items-center justify-center gap-2"
                     >
-                      Prima visita Firenze
-                      <ArrowRight className="w-5 h-5" />
+                      Prenota a Firenze
+                    </button>
+                    <button
+                      onClick={() => window.open('https://calendly.com/dott-bertolozzi/prima-visita-capannori', '_blank')}
+                      className="w-full md:w-auto px-8 py-4 bg-white text-[#4A7C59] border-2 border-[#4A7C59] rounded-full font-bold text-lg hover:bg-[#E2F1E7] transition-all flex items-center justify-center gap-2"
+                    >
+                      Prenota a Capannori (LU)
                     </button>
                   </div>
                 </div>

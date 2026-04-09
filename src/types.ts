@@ -1,24 +1,21 @@
 export interface QuestionOption {
-  label: string;
-  value: number;
+  text: string;
+  score: number;
 }
 
 export interface Question {
   id: number;
-  area: string;
   text: string;
-  options?: QuestionOption[];
+  options: QuestionOption[];
 }
 
 export interface Profile {
   id: number;
   name: string;
   mainMessage: string;
-  mirrorEffect: string;
-  explanation: string;
-  urgency: string;
-  reframe: string;
-  direction: string;
+  meaningNow: string;
+  inactionConsequences: string;
+  improvement: string;
   transition: string;
   minScore: number;
   maxScore: number;
